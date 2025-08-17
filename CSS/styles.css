@@ -1,5 +1,3 @@
-/* styles.css */
-
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -32,11 +30,27 @@ nav ul {
 nav a {
   text-decoration: none;
   color: #000;
+  transition: 
+    color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
 }
 
 nav a.active {
   color: #007bff;
   font-weight: bold;
+}
+
+nav a:hover,
+nav a:focus {
+  color: #fff;
+  background: #007bff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+  text-decoration: none;
 }
 
 .btn {
@@ -45,6 +59,12 @@ nav a.active {
   text-decoration: none;
   display: inline-block;
   margin: 0.5rem 0;
+  transition: 
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .primary {
@@ -57,6 +77,23 @@ nav a.active {
   border: 1px solid #007bff;
   color: #007bff;
   background: transparent;
+}
+
+.btn:hover,
+.btn:focus {
+  background: #0056b3;
+  color: #fff;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 16px rgba(0,123,255,0.15);
+  border-color: #0056b3;
+  text-decoration: none;
+}
+
+.btn.secondary:hover,
+.btn.secondary:focus {
+  background: #e0f0ff;
+  color: #0056b3;
+  border-color: #0056b3;
 }
 
 .hero {
@@ -72,17 +109,64 @@ nav a.active {
   max-width: 50%;
 }
 
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;      /* cubre el div sin deformarse */
+  border-radius: 15px;    /* opcional */
+}
 .hero-img {
-  width: 300px;
+  flex: 0 0 300px;
   height: 300px;
-  background: #e0e0e0;
-  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.social {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
 }
 
 .social a {
-  margin-right: 10px;
-  text-decoration: none;
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+  color: #333;
+}
+
+.social svg {
+  width: 32px;
+  height: 32px;
+  fill: currentColor;
+  transition: fill 0.2s;
+}
+
+.social a:hover {
+  color: #fff;
+  background: #0077b5; /* Color base: LinkedIn azul */
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.social a:hover svg {
+  transform: scale(1.2);
+  fill: #fff;
+}
+
+.social a svg {
+  transition: transform 0.2s, fill 0.2s;
+}
+
+/* Colores personalizados por red social */
+.social a[aria-label="GitHub"]:hover {
+  background: #24292e;
+}
+
+.social a[aria-label="Correo"]:hover {
+  background: #d44638;
 }
 
 .especializacion {
@@ -139,6 +223,22 @@ footer {
   text-decoration: none;
   display: block;
   margin: 0.3rem 0;
+  transition: 
+    color 0.2s,
+    background 0.2s,
+    box-shadow 0.2s,
+    transform 0.2s;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+}
+
+.footer-container a:hover,
+.footer-container a:focus {
+  color: #fff;
+  background: #007bff;
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,123,255,0.15);
+  text-decoration: none;
 }
 
 .legal {
@@ -146,4 +246,42 @@ footer {
   font-size: 0.9rem;
   border-top: 1px solid #444;
   padding-top: 1rem;
+}
+.project-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+.project-title {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #007bff;
+}
+.project-content {
+    line-height: 1.6;
+}
+.project-content h2 {
+    color: #333;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+.project-content p {
+    margin-bottom: 1rem;
+    text-align: justify;
+}
+.back-button {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    background: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.back-button:hover {
+    background: #0056b3;
 }

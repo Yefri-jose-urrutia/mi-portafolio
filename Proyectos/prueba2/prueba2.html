@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prueba2</title>
+    <link rel="stylesheet" href="../../CSS/styles.css">
+    <style>
+        .project-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        .project-title {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #007bff;
+        }
+        .project-content {
+            line-height: 1.6;
+        }
+        .project-content h2 {
+            color: #333;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        .project-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        .back-button {
+            display: inline-block;
+            margin-bottom: 2rem;
+            padding: 0.5rem 1rem;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .back-button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Mi Portafolio</div>
+        <nav>
+            <ul>
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="#" class="active">Proyectos</a></li>
+                <li><a href="#">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="project-container">
+        <a href="../" class="back-button">← Volver a Proyectos</a>
+        
+        <h1 class="project-title">prueba2</h1>
+        
+        <div class="project-content">
+            <h2>🧠 ¿Qué significa esto que acabamos de hacer?</h2><h2>Cuando instalas Proxmox VE, por defecto viene con algunos repositorios (fuentes de software) que requieren que tengas una suscripción de pago (como el repositorio “Enterprise” o el de “Ceph”).</h2><p>Entonces, cuando haces:</p><p>bash</p><p>CopiarEditar</p><p>apt-get update</p><p>El sistema intenta conectarse a esas fuentes para ver si hay actualizaciones, pero si no tienes licencia (lo normal si es gratis), te lanza errores como:</p><p>CopiarEditar</p><p>401 Unauthorized</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_1.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>🧰 ¿Qué hicimos?</h2><h2>Desactivamos los repositorios de pago (enterprise).</h2><p>Así el sistema no intenta conectarse a ellos.</p><h2>Activamos el repositorio gratuito oficial de Proxmox:</h2><p>bash</p><p>CopiarEditar</p><p>deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription</p><h2>Con eso, ya puedes actualizar Proxmox sin errores.</h2><h2>🤔 ¿Por qué es importante hacer esto?</h2><h2>Porque si no puedes actualizar, te quedarás con fallos, errores de seguridad o cosas sin arreglar.</h2><p>Además, muchas funciones de Proxmox (como las máquinas virtuales, contenedores, backups, etc.) pueden fallar si no tienes el sistema al día.</p><h2>🛠️ MANUAL COMPLETO PASO A PASO</h2><h2>📍 1. Abrir la terminal de Proxmox</h2><h2>Desde la web de Proxmox (https://TU-IP:8006), entra en tu nodo principal y haz clic en &quot;Shell&quot; o &quot;Terminal&quot;.</h2><h2>❌ 2. Desactivar el repositorio &quot;enterprise&quot; (de pago)</h2><h2>Comando:</h2><p>bash</p><p>CopiarEditar</p><p>nano /etc/apt/sources.list.d/pve-enterprise.list</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_2.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>Qué hacer dentro del archivo:</h2><p>Agrega un # delante de la línea para desactivarla:</p><p>bash</p><p>CopiarEditar</p><p># deb https://enterprise.proxmox.com/debian/pve bookworm pve-enterprise</p><h2>Guardar y salir:</h2><p>Ctrl + O → Enter</p><p>Ctrl + X</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_3.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>🧼 3. Desactivar el repositorio de Ceph (también de pago)</h2><p>Primero, busca dónde está:</p><p>bash</p><p>CopiarEditar</p><p>grep -r enterprise.proxmox.com /etc/apt/</p><p>Verás algo como:</p><p>swift</p><p>CopiarEditar</p><p>/etc/apt/sources.list.d/ceph.list:deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_4.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <p>Edita ese archivo:</p><p>bash</p><p>CopiarEditar</p><p>nano /etc/apt/sources.list.d/ceph.list</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_5.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <p>Y comenta la línea:</p><p>bash</p><p>CopiarEditar</p><p># deb https://enterprise.proxmox.com/debian/ceph-quincy bookworm InRelease</p><h2>Guardar y salir:</h2><p>Ctrl + O → Enter</p><p>Ctrl + X</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_6.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>✅ 4. Activar el repositorio gratuito (no-subscription)</h2><p>Edita el archivo principal de repos:</p><p>bash</p><p>CopiarEditar</p><p>nano /etc/apt/sources.list</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_7.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>Al final del archivo, añade esta línea:</h2><p>bash</p><p>CopiarEditar</p><p>deb http://download.proxmox.com/debian/pve bookworm pve-no-subscription</p><p>Si usas Debian 11 en lugar de 12, cambia bookworm por bullseye.</p><h2>Guardar y salir:</h2><p>Ctrl + O → Enter</p><p>Ctrl + X</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_8.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>🔁 5. Actualizar el sistema</h2><p>Ahora que los repos están bien configurados:</p><p>bash</p><p>CopiarEditar</p><p>apt-get update</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_9.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_10.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <p>Y luego para instalar las actualizaciones disponibles:</p><p>bash</p><p>CopiarEditar</p><p>apt-get dist-upgrade -y</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_11.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>🔄 6. (Opcional) Reiniciar si actualizaste el kernel</h2><p>bash</p><p>CopiarEditar</p><p>Reboot</p>
+                                    <div style='margin: 1rem 0; text-align: center;'>
+                                        <img src='imagen_12.png' alt='Imagen del proyecto' style='max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);'>
+                                    </div>
+                                    <h2>🔁 ¿Cada cuánto hacerlo?</h2><h2>Una vez cada 15 días o una vez al mes está bien si no usas Proxmox de forma profesional. Si es para algo importante o lo tienes encendido todo el tiempo, mejor hacerlo cada semana.</h2>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div>
+                <h4>Contacto</h4>
+                <ul>
+                    <li><a href="#">Email</a></li>
+                    <li><a href="#">Teléfono</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Redes Sociales</h4>
+                <ul>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">GitHub</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="legal">
+            <p>&copy; 2024 Mi Portafolio. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
