@@ -12,7 +12,12 @@ class ManualsLoader {
 
   async init() {
     try {
-      await this.loadManualsFromJSON();
+      // Add a timeout to prevent infinite loading
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout loading manuals')), 10000)
+      );
+      
+      await Promise.race([this.loadManualsFromJSON(), timeoutPromise]);
       this.filteredManuals = this.manuals; // Inicialmente muestra todos
       this.renderManuals();
       this.setupSearch(); // Nuevo
@@ -37,18 +42,30 @@ class ManualsLoader {
   }
 
   async loadManualsFromJSON() {
-    const response = await fetch('../Manuales/manuales-list.json');
-    if (!response.ok) throw new Error('No se pudo cargar manuales-list.json');
+    try {
+      const response = await fetch('../Manuales/manuales-list.json');
+      if (!response.ok) throw new Error('No se pudo cargar manuales-list.json');
 
-    const manuals = await response.json();
-    this.manuals = manuals;
+      const manuals = await response.json();
+      
+      // Validate that we have a valid array
+      if (!Array.isArray(manuals)) {
+        throw new Error('Invalid manuals data format');
+      }
+      
+      this.manuals = manuals;
 
-    // Ordenar por fecha (más reciente primero)
-    this.manuals.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    });
+      // Ordenar por fecha (más reciente primero)
+      this.manuals.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+    } catch (error) {
+      console.error('Error loading manuals:', error);
+      this.manuals = []; // Ensure we have an empty array on error
+      throw error; // Re-throw to be handled by init()
+    }
   }
 
   renderManuals() {

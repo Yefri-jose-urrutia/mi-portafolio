@@ -1,0 +1,11 @@
+[
+  {
+    "nombre": "Proyecto Portfolio",
+    "descripcion": "Portafolio técnico personal desarrollado con HTML, CSS y JavaScript",
+    "imagen": "img/default-cover.jpg",
+    "date": "2025-08-27",
+    "url": "index.html",
+    "tecnologias": ["HTML", "CSS", "JavaScript"],
+    "estado": "En desarrollo"
+  }
+]

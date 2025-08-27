@@ -14,7 +14,12 @@ class ProjectsLoader {
 
   async init() {
     try {
-      await this.loadProjectsFromJSON();
+      // Add a timeout to prevent infinite loading
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Timeout loading projects')), 10000)
+      );
+      
+      await Promise.race([this.loadProjectsFromJSON(), timeoutPromise]);
       this.filteredProjects = this.projects; // Inicialmente muestra todos
       this.renderProjects();
       this.setupSearch(); // Nuevo
@@ -40,28 +45,39 @@ class ProjectsLoader {
   }
 
   async loadProjectsFromJSON() {
-    const response = await fetch('../proyectos/projects-list.json');
-    if (!response.ok) throw new Error('No se pudo cargar projects-list.json');
+    try {
+      const response = await fetch('../Proyectos/projects-list.json');
+      if (!response.ok) throw new Error('No se pudo cargar projects-list.json');
 
-    const rawProjects = await response.json();
+      const rawProjects = await response.json();
 
-    // Mapeamos los datos del JSON al formato que espera el render
-    this.projects = rawProjects.map(proyecto => ({
-      name: proyecto.nombre,
-      short_description: proyecto.descripcion,
-      cover: proyecto.imagen,
-      url: proyecto.url,
-      date: proyecto.date,
-      technologies: proyecto.tecnologias || [],
-      status: proyecto.estado || 'En desarrollo' // Obtener el estado del proyecto
-    }));
+      // Validate that we have a valid array
+      if (!Array.isArray(rawProjects)) {
+        throw new Error('Invalid projects data format');
+      }
 
-    // Ordenar por fecha (más reciente primero)
-    this.projects.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    });
+      // Mapeamos los datos del JSON al formato que espera el render
+      this.projects = rawProjects.map(proyecto => ({
+        name: proyecto.nombre,
+        short_description: proyecto.descripcion,
+        cover: proyecto.imagen,
+        url: proyecto.url,
+        date: proyecto.date,
+        technologies: proyecto.tecnologias || [],
+        status: proyecto.estado || 'En desarrollo' // Obtener el estado del proyecto
+      }));
+
+      // Ordenar por fecha (más reciente primero)
+      this.projects.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+    } catch (error) {
+      console.error('Error loading projects:', error);
+      this.projects = []; // Ensure we have an empty array on error
+      throw error; // Re-throw to be handled by init()
+    }
   }
 
   renderProjects() {
@@ -98,11 +114,11 @@ class ProjectsLoader {
     return `
       <div class="project-card">
         <div class="project-image">
-          <img src="../proyectos/${coverImage}" 
+          <img src="../Proyectos/${coverImage}" 
                alt="${project.name}" 
                onerror="this.src='../img/default-cover.jpg'">
           <div class="project-overlay">
-            <a href="../proyectos/${project.url}" class="project-link">
+            <a href="../Proyectos/${project.url}" class="project-link">
               <span class="material-symbols-outlined">visibility</span>
               Ver Proyecto
             </a>
