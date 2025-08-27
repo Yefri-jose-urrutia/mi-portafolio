@@ -1,0 +1,60 @@
+name: Workflow Management
+
+on:
+  workflow_dispatch:
+    inputs:
+      action:
+        description: 'Action to perform'
+        required: true
+        default: 'status'
+        type: choice
+        options:
+        - status
+        - cleanup
+        - cancel-stuck
+
+jobs:
+  manage-workflows:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Check workflow status
+        if: github.event.inputs.action == 'status'
+        run: |
+          echo "Checking current workflow status..."
+          echo "This job helps manage and monitor workflow runs"
+          echo "Use GitHub CLI or API to check for stuck workflows"
+          
+      - name: Cleanup old workflow runs
+        if: github.event.inputs.action == 'cleanup'
+        run: |
+          echo "To cleanup old workflow runs, you can use GitHub CLI:"
+          echo "gh run list --status in_progress --limit 50"
+          echo "gh run cancel <run-id>"
+          
+      - name: Instructions for stuck workflows
+        if: github.event.inputs.action == 'cancel-stuck'
+        run: |
+          echo "=== INSTRUCTIONS FOR CANCELLING STUCK WORKFLOWS ==="
+          echo ""
+          echo "If a workflow cannot be cancelled through the GitHub UI:"
+          echo ""
+          echo "1. Try using GitHub CLI:"
+          echo "   gh run list --status in_progress"
+          echo "   gh run cancel <run-id>"
+          echo ""
+          echo "2. Contact GitHub Support if the workflow remains stuck"
+          echo ""
+          echo "3. As a last resort, you may need to:"
+          echo "   - Create a new repository"
+          echo "   - Transfer the code"
+          echo "   - Update repository settings"
+          echo ""
+          echo "4. To prevent future issues:"
+          echo "   - Add timeout configurations to workflows"
+          echo "   - Limit concurrent workflow runs"
+          echo "   - Use workflow_dispatch with manual triggers"
