@@ -14,3 +14,35 @@ window.addEventListener("DOMContentLoaded", () => {
     this.setAttribute('aria-expanded', nav.classList.contains('open'));
   });
 });
+
+function calcularExperienciaLaboral(fechaInicio, trabajando = true) {
+  if (!trabajando) {
+    document.getElementById('experiencia-laboral').textContent = 'Sin empleo actualmente';
+    return;
+  }
+  const inicio = new Date(fechaInicio);
+  const hoy = new Date();
+  let años = hoy.getFullYear() - inicio.getFullYear();
+  let meses = hoy.getMonth() - inicio.getMonth();
+  let dias = hoy.getDate() - inicio.getDate();
+
+  if (dias < 0) {
+    meses--;
+    dias += new Date(hoy.getFullYear(), hoy.getMonth(), 0).getDate();
+  }
+  if (meses < 0) {
+    años--;
+    meses += 12;
+  }
+
+  let texto = '';
+  if (años > 0) texto += `${años} año${años > 1 ? 's' : ''}`;
+  if (meses > 0) texto += ` y ${meses} mes${meses > 1 ? 'es' : ''}`;
+  if (años === 0 && meses === 0) texto += `${dias} día${dias > 1 ? 's' : ''}`;
+  else if (dias > 0) texto += ` y ${dias} día${dias > 1 ? 's' : ''}`;
+
+  document.getElementById('experiencia-laboral').textContent = texto;
+}
+
+// Cambia a false si no estás trabajando actualmente
+calcularExperienciaLaboral('2023-09-18', true);
