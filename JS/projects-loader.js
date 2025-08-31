@@ -40,28 +40,25 @@ class ProjectsLoader {
   }
 
   async loadProjectsFromJSON() {
-    const response = await fetch('../proyectos/projects-list.json');
-    if (!response.ok) throw new Error('No se pudo cargar projects-list.json');
-
-    const rawProjects = await response.json();
-
-    // Mapeamos los datos del JSON al formato que espera el render
-    this.projects = rawProjects.map(proyecto => ({
-      name: proyecto.nombre,
-      short_description: proyecto.descripcion,
-      cover: proyecto.imagen,
-      url: proyecto.url,
-      date: proyecto.date,
-      technologies: proyecto.tecnologias || [],
-      status: proyecto.estado || 'En desarrollo' // Obtener el estado del proyecto
-    }));
-
-    // Ordenar por fecha (más reciente primero)
-    this.projects.sort((a, b) => {
-      const dateA = new Date(a.date);
-      const dateB = new Date(b.date);
-      return dateB - dateA;
-    });
+    try {
+      // Intentar con la ruta con mayúsculas primero
+      const response = await fetch('../Proyectos/projects-list.json');
+      
+      if (!response.ok) {
+        // Si falla, intentar con minúsculas
+        const responseFallback = await fetch('../proyectos/projects-list.json');
+        if (!responseFallback.ok) {
+          throw new Error('No se pudo cargar la lista de proyectos');
+        }
+        return await responseFallback.json();
+      }
+      
+      return await response.json();
+    } catch (error) {
+      console.error('Error cargando proyectos:', error);
+      this.showError();
+      return [];
+    }
   }
 
   renderProjects() {
