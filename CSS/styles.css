@@ -1087,3 +1087,648 @@ main {
     padding-top: 1.5rem;
   }
 }
+
+/* === ESTILOS PARA LA PÁGINA DE RECURSOS === */
+/* Contenedor principal de recursos con mejor espaciado */
+.resources-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Barra de búsqueda mejorada */
+.resource-search {
+  position: relative;
+  margin: 1.5rem auto 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.resource-search input {
+  width: 100%;
+  padding: 12px 20px 12px 50px;
+  font-size: 1rem;
+  border: 1px solid #d1d9e6;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.resource-search input:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+}
+
+.resource-search span {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #007bff;
+  font-size: 1.3rem;
+}
+
+/* Tarjetas de categorías de recursos */
+.resource-category {
+  background: #fff;
+  border-radius: 12px;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.resource-category:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.resource-category h2 {
+  padding: 1.2rem 1.5rem;
+  margin: 0;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.4rem;
+  color: #343a40;
+}
+
+.resource-category h2 span {
+  color: #007bff;
+  font-size: 1.8rem;
+}
+
+/* Áreas de documentación */
+.resource-category:nth-child(1) h2 {
+  background-color: #e3f2fd;
+  border-bottom: 1px solid #bbdefb;
+}
+
+/* Áreas de herramientas */
+.resource-category:nth-child(2) h2 {
+  background-color: #e8f5e9;
+  border-bottom: 1px solid #c8e6c9;
+}
+
+/* Material propio */
+.resource-category:nth-child(3) h2 {
+  background-color: #fff8e1;
+  border-bottom: 1px solid #ffecb3;
+}
+
+/* Cursos y tutoriales */
+.resource-category:nth-child(4) h2 {
+  background-color: #f3e5f5;
+  border-bottom: 1px solid #e1bee7;
+}
+
+.resource-content {
+  padding: 1.5rem;
+}
+
+.resource-category p {
+  margin-top: 0;
+  color: #555;
+}
+
+/* Lista de recursos mejorada */
+.resource-category ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.resource-category li {
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background-color: #f8f9fa;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-left: 3px solid #dee2e6;
+}
+
+.resource-category li:hover {
+  background-color: #e9ecef;
+  border-left-color: #007bff;
+}
+
+.resource-category li .material-symbols-outlined {
+  color: #6c757d;
+}
+
+.resource-category li a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: 500;
+  transition: color 0.2s;
+  flex: 1;
+}
+
+.resource-category li a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+/* Etiquetas para tipos de recursos */
+.resource-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-left: 8px;
+  color: #fff;
+}
+
+.tag-doc {
+  background-color: #007bff;
+}
+
+.tag-tool {
+  background-color: #28a745;
+}
+
+.tag-own {
+  background-color: #fd7e14;
+}
+
+.tag-course {
+  background-color: #6f42c1;
+}
+
+/* Estilo para cuando no hay resultados de búsqueda */
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  color: #6c757d;
+  font-style: italic;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  margin-top: 2rem;
+  display: none;
+}
+
+/* Animación para resultados filtrados */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Animaciones para el desplegable */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+}
+
+.child-item.expanded {
+  animation: slideDown 0.3s ease forwards;
+}
+
+.child-item.collapsed {
+  animation: slideUp 0.3s ease forwards;
+}
+
+/* Responsive para móviles */
+@media (max-width: 700px) {
+  .resource-category h2 {
+    padding: 1rem;
+    font-size: 1.2rem;
+  }
+  
+  .resource-content {
+    padding: 1rem;
+  }
+  
+  .resource-category li {
+    padding: 10px;
+    font-size: 0.95rem;
+  }
+  
+  .resource-search input {
+    padding: 10px 15px 10px 40px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Estilos para el menú desplegable de IAs */
+.dropdown-container {
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  transition: color 0.2s;
+  color: #007bff;
+  font-weight: 500;
+}
+
+.dropdown-trigger:after {
+  content: "expand_more";
+  font-family: 'Material Symbols Outlined';
+  font-size: 1.2rem;
+  margin-left: 4px;
+  vertical-align: middle;
+  transition: transform 0.3s;
+}
+
+.dropdown-container.active .dropdown-trigger:after {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 220px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+  z-index: 100; /* Valor más alto para asegurar que aparezca por encima */
+  padding: 8px 0;
+  margin-top: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s ease;
+}
+
+.dropdown-container.active .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  display: block; /* Asegura que se muestre */
+}
+
+.dropdown-content a {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  color: #333 !important;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+  color: #007bff !important;
+  text-decoration: none !important;
+}
+
+.dropdown-content a .material-symbols-outlined {
+  font-size: 1.2rem;
+  color: #007bff;
+}
+
+/* Flecha indicadora para el dropdown */
+.dropdown-content:before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 20px;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid #fff;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 700px) {
+  .dropdown-content {
+    position: relative;
+    width: 100%;
+    box-shadow: none;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border: 1px solid #eee;
+  }
+  
+  .dropdown-content:before {
+    display: none;
+  }
+}
+
+/* Estilos para los elementos de IA indentados */
+.ia-item {
+  padding-left: 40px !important;
+  position: relative;
+  border-left: none !important;
+  margin-left: 0 !important;
+  background-color: #f7fbff !important;
+}
+
+.ia-item:first-of-type {
+  margin-top: 4px !important;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.ia-item:last-of-type {
+  margin-bottom: 12px !important;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.ia-item:before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  width: 20px;
+  height: 2px;
+  background-color: #e0f2ff;
+}
+
+.ia-item .material-symbols-outlined {
+  color: #0078d4 !important;
+}
+
+.ia-item a {
+  color: #0078d4 !important;
+}
+
+.tag-ia {
+  background-color: #0078d4;
+}
+
+/* Ajuste responsivo para elementos de IA */
+@media (max-width: 700px) {
+  .ia-item {
+    padding-left: 25px !important;
+  }
+}
+
+/* Estilos para la lista de IAs */
+.ia-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-left: 2px solid #e0f2ff;
+  margin-left: 24px;
+  margin-bottom: 15px;
+}
+
+.ia-item {
+  background-color: #f7fbff !important;
+  padding: 8px 15px 8px 30px !important;
+  margin: 0 !important;
+  position: relative;
+  border-radius: 0 !important;
+  border-bottom: 1px solid #e0f2ff !important;
+}
+
+.ia-item:first-child {
+  border-top: 1px solid #e0f2ff !important;
+}
+
+.ia-item:last-child {
+  border-bottom-left-radius: 6px !important;
+  border-bottom-right-radius: 6px !important;
+}
+
+.ia-item:before {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 2px;
+  background-color: #e0f2ff;
+  left: -10px;
+  top: 50%;
+}
+
+.ia-item .material-symbols-outlined {
+  color: #0078d4;
+  font-size: 1rem;
+}
+
+.ia-item a {
+  color: #0078d4;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.ia-item a:hover {
+  text-decoration: underline;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 700px) {
+  .ia-list {
+    margin-left: 15px;
+  }
+  
+  .ia-item {
+    padding-left: 20px !important;
+  }
+}
+
+/* Estilos para la estructura de árbol */
+
+.tree-view {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tree-item-parent {
+  position: relative;
+}
+
+.tree-children {
+  list-style-type: none;
+  padding: 0;
+  margin: 5px 0 10px 20px;
+  position: relative;
+}
+
+/* Línea vertical del árbol */
+.tree-children::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -15px;
+  height: 100%;
+  border-left: 1px solid #c1d5e0;
+}
+
+.tree-child {
+  position: relative;
+  padding: 8px 15px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  background-color: #f7fbff;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Línea horizontal hacia los elementos hijos */
+.tree-child::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -15px;
+  width: 10px;
+  border-top: 1px solid #c1d5e0;
+}
+
+.tree-child:hover {
+  background-color: #e3f2fd;
+}
+
+.tree-child .material-symbols-outlined {
+  color: #0078d4;
+  font-size: 1.2rem;
+}
+
+.tree-child a {
+  text-decoration: none;
+  color: #0078d4;
+  font-weight: 500;
+}
+
+.tree-child a:hover {
+  text-decoration: underline;
+}
+
+/* Ajustes responsivos para la estructura de árbol */
+@media (max-width: 700px) {
+  .tree-children {
+    margin-left: 15px;
+  }
+  
+  .tree-child {
+    padding: 6px 10px;
+  }
+}
+
+/* Eliminamos estilos anteriores de ia-list que ya no son necesarios */
+.ia-list, .ia-item {
+  /* Estos estilos ya no son necesarios, podemos dejarlos vacíos o eliminarlos */
+}
+
+/* Estilos para estructura jerárquica de elementos */
+
+.resource-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Estilos para elementos con hijos */
+.has-children {
+  position: relative;
+}
+
+/* Línea vertical para elementos hijos */
+.has-children:after {
+  content: "";
+  position: absolute;
+  left: 16px; /* Alineado con el icono */
+  top: 38px; /* Ajustado para empezar después del elemento padre */
+  bottom: -5px;
+  width: 2px;
+  background-color: #e0f2ff;
+  z-index: 1;
+}
+
+/* Elementos hijos indentados */
+.child-item {
+  display: none !important; /* Aseguramos que estén ocultos inicialmente */
+  padding-left: 40px !important;
+  position: relative;
+  margin-left: 0 !important;
+  border-left: none !important;
+  background-color: #f7fbff !important;
+}
+
+/* Mostrar elementos hijos solo cuando el padre tiene la clase 'expanded' */
+.has-children.expanded ~ .child-item {
+  display: flex !important; /* Mostrar cuando el padre está expandido */
+}
+
+/* Estilo para indicar que un elemento es desplegable */
+.has-children {
+  cursor: pointer;
+  position: relative;
+}
+
+/* Añadir icono desplegable */
+.has-children::after {
+  content: "expand_more";
+  font-family: 'Material Symbols Outlined';
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #007bff;
+  transition: transform 0.3s;
+}
+
+/* Girar el icono cuando está desplegado */
+.has-children.expanded::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Ajustes responsivos */
+@media (max-width: 700px) {
+  .child-item {
+    padding-left: 30px !important;
+  }
+  
+  .has-children:after {
+    left: 12px;
+  }
+  
+  .child-item:before {
+    left: 12px;
+    width: 10px;
+  }
+}
+
+/* Eliminar estilos antiguos que puedan causar conflictos */
+.dropdown-container, .dropdown-content, .dropdown-trigger,
+.ia-list, .ia-item, .tree-view, .tree-children, .tree-child {
+  /* Anular propiedades que puedan causar problemas */
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: static !important;
+  transform: none !important;
+  box-shadow: none !important;
+}

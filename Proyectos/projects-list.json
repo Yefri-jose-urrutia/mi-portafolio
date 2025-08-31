@@ -1,0 +1,19 @@
+[
+  {
+    "nombre": "hacer paginas web pasandole un word",
+    "descripcion": "Esta aplicación de escritorio convierte documentos de Microsoft Word en páginas web HTML bien estructuradas y formateadas. Está especialmente diseñada para crear manuales técnicos y páginas de proyectos de manera sencilla. Gracias a su interfaz gráfica intuitiva, permite extraer el contenido de los documentos, editarlo y transformarlo en HTML siguiendo plantillas personalizables que se adaptan a cada necesidad.",
+    "imagen": "hacer paginas web pasandole un word/imagenes/descarga (1).jpeg",
+    "date": "2025-08-31",
+    "url": "hacer paginas web pasandole un word/hacer paginas web pasandole un word.html",
+    "tecnologias": [
+      "Herramientas de ias",
+      "Python",
+      "Tkinter",
+      "python-docx",
+      "Beautiful Sou",
+      "JSON"
+    ],
+    "estado": "Completado",
+    "tipo": "proyecto"
+  }
+]

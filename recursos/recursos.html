@@ -5,15 +5,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recursos - Portafolio Técnico Informático</title>
-  <meta name="description" content="Recursos técnicos y materiales de apoyo del portafolio de Yefri Urrutia.">
-  <link rel="stylesheet" href="../CSS/styles.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+  <meta name="description" content="Recursos técnicos, guías, herramientas y materiales propios para desarrollo informático. Contribuye y sube tus sugerencias. Por Yefri Urrutia.">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
 </head>
 <body>
   <header>
     <div class="logo">Portafolio Técnico <strong>Informático</strong></div>
     <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-menu" aria-expanded="false">
-      &#9776;
+      <span class="material-symbols-outlined">menu</span>
     </button>
     <nav id="main-menu" aria-label="Menú principal">
       <ul>
@@ -28,39 +28,182 @@
   </header>
 
   <main>
-    <div class="project-container">
-      <h1 class="project-main-title">🧰 Recursos</h1>
-      <div class="project-content">
+    <div class="project-container resources-container">
+      <h1 class="project-main-title"><span class="material-symbols-outlined">toolbox</span> Recursos</h1>
+      <p class="intro">Aquí encontrarás recursos útiles para desarrollo informático, herramientas recomendadas y materiales propios. Usa la búsqueda para filtrar. ¡Contribuye con tus sugerencias!</p>
+      
+      <div class="resource-search">
+        <span class="material-symbols-outlined">search</span>
+        <input type="text" id="search-input" placeholder="Buscar recursos por nombre o categoría..." aria-label="Buscar en recursos">
+      </div>
 
-        <section>
-          <h2>📘 Documentación útil</h2>
-          <ul>
-            <li><a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a> – Editor de código.</li>
-            <li><a href="https://git-scm.com/doc" target="_blank">Git</a> – Documentación oficial.</li>
-            <li><a href="https://docs.github.com/es" target="_blank">GitHub Docs</a> – Cómo usar GitHub.</li>
-            <li><a href="https://pages.github.com/" target="_blank">GitHub Pages</a> – Publicación de páginas.</li>
-          </ul>
-        </section>
+      <div id="resource-list">
+        <div class="resource-category" data-category="documentacion">
+          <h2><span class="material-symbols-outlined">description</span> Documentación útil</h2>
+          <div class="resource-content">
+            <ul>
+              <li>
+                <span class="material-symbols-outlined">language</span>
+                <a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a>
+                <span class="resource-tag tag-doc">Documentación</span>
+                – Editor de código potente y extensible.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">merge</span>
+                <a href="https://git-scm.com/doc" target="_blank" rel="noopener noreferrer">Git</a>
+                <span class="resource-tag tag-doc">Documentación</span>
+                – Documentación oficial para control de versiones.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">hub</span>
+                <a href="https://docs.github.com/es" target="_blank" rel="noopener noreferrer">GitHub Docs</a>
+                <span class="resource-tag tag-doc">Documentación</span>
+                – Guía completa para usar GitHub.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">web</span>
+                <a href="https://pages.github.com/" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
+                <span class="resource-tag tag-doc">Documentación</span>
+                – Hosting gratuito para sitios web.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">code_blocks</span>
+                <a href="https://developer.mozilla.org/es/" target="_blank" rel="noopener noreferrer">MDN Web Docs</a>
+                <span class="resource-tag tag-doc">Documentación</span>
+                – Recursos para desarrollo web (HTML, CSS, JS).
+              </li>
+            </ul>
+          </div>
+        </div>
 
-        <section>
-          <h2>🧑‍💻 Herramientas recomendadas</h2>
-          <ul>
-            <li>🖥️ <strong>Live Server</strong> (extensión VS Code) – Para probar tu web en local.</li>
-            <li>📂 <strong>Notion / Obsidian</strong> – Para organizar tus notas y manuales.</li>
-            <li>⚡ <strong>ChatGPT</strong> – Para ayudarte a redactar y programar más rápido.</li>
-          </ul>
-        </section>
+        <div class="resource-category" data-category="herramientas">
+          <h2><span class="material-symbols-outlined">build</span> Herramientas recomendadas</h2>
+          <div class="resource-content">
+            <ul class="resource-list">
+              <li>
+                <span class="material-symbols-outlined">code</span>
+                <strong>Live Server</strong> (extensión VS Code)
+                <span class="resource-tag tag-tool">Herramienta</span>
+                – Prueba tu web localmente en tiempo real.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">notes</span>
+                <strong>Notion / Obsidian</strong>
+                <span class="resource-tag tag-tool">Herramienta</span>
+                – Organiza notas, manuales y proyectos.
+              </li>
+              <!-- Elemento principal de IAs -->
+              <li class="has-children">
+                <span class="material-symbols-outlined">smart_toy</span>
+                <strong>IAs</strong>
+                <span class="resource-tag tag-tool">Herramienta</span>
+                – Asistentes de IA para programación y consultas.
+              </li>
 
-        <section>
-          <h2>📂 Material propio</h2>
-          <p>Aquí añadiré mis apuntes y recursos creados:</p>
-          <ul>
-            <li><a href="../recursos/atajos-teclado.pdf" target="_blank">Guía de atajos de teclado</a></li>
-            <li><a href="../recursos/script-backup.py" target="_blank">Script de backup automático</a></li>
-            <li><a href="../recursos/configuracion-linux.docx" target="_blank">Apuntes de configuración Linux</a></li>
-          </ul>
-        </section>
+              <!-- IAs como elementos indentados (inicialmente ocultos) -->
+              <li class="child-item">
+                <span class="material-symbols-outlined">language</span>
+                <a href="https://chat.qwen.ai/" target="_blank" rel="noopener noreferrer">Qwen</a>
+                – Asistente inteligente de Alibaba.
+              </li>
+              <li class="child-item">
+                <span class="material-symbols-outlined">psychology</span>
+                <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
+                – IA conversacional de Anthropic.
+              </li>
+              <li class="child-item">
+                <span class="material-symbols-outlined">terminal</span>
+                <a href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
+                – Asistente de código para programadores.
+              </li>
+              <li class="child-item">
+                <span class="material-symbols-outlined">chat</span>
+                <a href="https://chat.openai.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a>
+                – IA conversacional de OpenAI.
+              </li>
+              <li class="child-item">
+                <span class="material-symbols-outlined">diamond</span>
+                <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer">Gemini</a>
+                – Modelo multimodal de Google.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">api</span>
+                <strong>Postman</strong>
+                <span class="resource-tag tag-tool">Herramienta</span>
+                – Prueba APIs y servicios web.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">design_services</span>
+                <strong>Figma</strong>
+                <span class="resource-tag tag-tool">Herramienta</span>
+                – Diseño de interfaces y prototipos.
+              </li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="resource-category" data-category="material">
+          <h2><span class="material-symbols-outlined">folder</span> Material propio</h2>
+          <div class="resource-content">
+            <p>Aquí mis apuntes y recursos creados. ¡Descárgalos!</p>
+            <ul>
+              <li>
+                <span class="material-symbols-outlined">keyboard</span>
+                <a href="../recursos/atajos-teclado.pdf" target="_blank" rel="noopener noreferrer">Guía de atajos de teclado</a>
+                <span class="resource-tag tag-own">Material propio</span>
+                – Atajos esenciales para productividad.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">backup</span>
+                <a href="../recursos/script-backup.py" target="_blank" rel="noopener noreferrer">Script de backup automático</a>
+                <span class="resource-tag tag-own">Material propio</span>
+                – En Python para copias de seguridad.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">settings</span>
+                <a href="../recursos/configuracion-linux.docx" target="_blank" rel="noopener noreferrer">Apuntes de configuración Linux</a>
+                <span class="resource-tag tag-own">Material propio</span>
+                – Guía básica para servidores.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">terminal</span>
+                <a href="../recursos/cheatsheet-comandos-bash.pdf" target="_blank" rel="noopener noreferrer">Cheatsheet de comandos Bash</a>
+                <span class="resource-tag tag-own">Material propio</span>
+                – Comandos comunes en terminal.
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="resource-category" data-category="cursos">
+          <h2><span class="material-symbols-outlined">school</span> Cursos y Tutoriales Gratuitos</h2>
+          <div class="resource-content">
+            <ul>
+              <li>
+                <span class="material-symbols-outlined">laptop_chromebook</span>
+                <a href="https://www.freecodecamp.org/" target="_blank" rel="noopener noreferrer">freeCodeCamp</a>
+                <span class="resource-tag tag-course">Curso</span>
+                – Cursos interactivos de programación.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">code</span>
+                <a href="https://www.codecademy.com/" target="_blank" rel="noopener noreferrer">Codecademy</a>
+                <span class="resource-tag tag-course">Curso</span>
+                – Lecciones gratuitas en Python, SQL, etc.
+              </li>
+              <li>
+                <span class="material-symbols-outlined">computer</span>
+                <a href="https://www.udacity.com/" target="_blank" rel="noopener noreferrer">Udacity</a>
+                <span class="resource-tag tag-course">Curso</span>
+                – Nanodegrees gratuitos en IA y desarrollo.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="no-results" id="no-results">
+        No se encontraron recursos que coincidan con tu búsqueda.
       </div>
     </div>
   </main>
@@ -83,27 +226,87 @@
         <a href="tel:+34603115557">+34 603 115 557</a>
       </div>
       <div class="footer-social">
-        <a href="https://www.linkedin.com/in/yefri-urrutia-hernandez-informatica/" target="_blank" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/yefri-urrutia-hernandez-informatica/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
           <svg width="24" height="24" fill="#607d8b" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.5c.41-.59 1.09-1.5 2.5-1.5 1.93 0 3.5 1.57 3.5 3.5v6.5z"/></svg>
         </a>
-        <a href="https://github.com/Yefri-jose-urrutia" target="_blank" aria-label="GitHub">
+        <a href="https://github.com/Yefri-jose-urrutia" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
           <svg width="24" height="24" fill="#607d8b" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.93.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.07 11.07 0 012.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.73.11 3.02.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
         </a>
       </div>
     </div>
     <hr>
     <div class="footer-copy">
-      &copy; 2025 Yefri Jose Urrutia Hernandez. Todos los derechos reservados.
+      &copy; <script>document.write(new Date().getFullYear());</script> Yefri Jose Urrutia Hernandez. Todos los derechos reservados.
     </div>
   </footer>
 
   <script>
-    // Menú hamburguesa
+  document.addEventListener('DOMContentLoaded', function() {
+    // Menú hamburguesa (mantener el código existente)
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       const nav = document.getElementById('main-menu');
       nav.classList.toggle('open');
       this.setAttribute('aria-expanded', nav.classList.contains('open'));
     });
+
+    // Búsqueda mejorada (mantener el código existente)
+    const searchInput = document.getElementById('search-input');
+    const resourceList = document.querySelectorAll('.resource-category');
+    const resourceItems = document.querySelectorAll('.resource-category li');
+    const noResults = document.getElementById('no-results');
+
+    searchInput.addEventListener('input', function() {
+      const filter = this.value.toLowerCase();
+      let foundAny = false;
+      
+      resourceItems.forEach(item => {
+        const text = item.textContent.toLowerCase();
+        const shouldShow = text.includes(filter);
+        
+        // No ocultar elementos padre si tienen hijos visibles
+        const isParent = item.classList.contains('has-children');
+        const hasVisibleChildren = false; // Lógica para detectar hijos visibles si es necesario
+        
+        item.style.display = shouldShow || (isParent && hasVisibleChildren) ? '' : 'none';
+        
+        if (shouldShow) foundAny = true;
+      });
+      
+      // Verifica si hay elementos visibles en cada categoría
+      resourceList.forEach(category => {
+        const visibleItems = category.querySelectorAll('li[style="display: "]').length + 
+                            category.querySelectorAll('li:not([style*="display: none"])').length;
+        category.style.display = visibleItems > 0 ? '' : 'none';
+      });
+      
+      // Muestra el mensaje cuando no hay resultados
+      if (noResults) {
+        noResults.style.display = foundAny ? 'none' : 'block';
+      }
+    });
+    
+    // NUEVO: Funcionalidad para el desplegable de IAs
+    const iasParent = document.querySelector('.has-children');
+    const childItems = document.querySelectorAll('.child-item');
+    
+    if (iasParent) {
+      iasParent.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        // Alternar la clase expanded en el elemento padre
+        this.classList.toggle('expanded');
+        
+        // Mostrar u ocultar los elementos hijos con animación
+        childItems.forEach((child, index) => {
+          setTimeout(() => {
+            child.style.display = this.classList.contains('expanded') ? 'flex' : 'none';
+          }, index * 50); // Efecto cascada
+        });
+      });
+    }
+  });
   </script>
+
 </body>
 </html>
