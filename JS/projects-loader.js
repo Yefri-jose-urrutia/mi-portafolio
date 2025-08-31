@@ -5,7 +5,7 @@ class ProjectsLoader {
     this.projectsContainer = document.getElementById('projects-grid');
     this.loadingIndicator = document.getElementById('loading');
     this.errorMessage = document.getElementById('error-message');
-    this.searchInput = document.getElementById('projects-search'); // Nuevo
+    this.searchInput = document.getElementById('projects-search');
     this.projects = [];
     this.filteredProjects = [];
 
@@ -15,9 +15,9 @@ class ProjectsLoader {
   async init() {
     try {
       await this.loadProjectsFromJSON();
-      this.filteredProjects = this.projects; // Inicialmente muestra todos
+      this.filteredProjects = this.projects; 
       this.renderProjects();
-      this.setupSearch(); // Nuevo
+      this.setupSearch();
     } catch (error) {
       console.error('Error cargando proyectos:', error);
       this.showError();
@@ -29,10 +29,10 @@ class ProjectsLoader {
       this.searchInput.addEventListener('input', (e) => {
         const query = e.target.value.toLowerCase();
         this.filteredProjects = this.projects.filter(project =>
-          project.name.toLowerCase().includes(query) ||
-          (project.short_description && project.short_description.toLowerCase().includes(query)) ||
-          (project.technologies && project.technologies.some(tech => tech.toLowerCase().includes(query))) ||
-          (project.status && project.status.toLowerCase().includes(query))
+          project.nombre.toLowerCase().includes(query) ||
+          project.descripcion.toLowerCase().includes(query) ||
+          (project.tecnologias && project.tecnologias.some(tech => tech.toLowerCase().includes(query))) ||
+          (project.estado && project.estado.toLowerCase().includes(query))
         );
         this.renderProjects();
       });
@@ -41,23 +41,26 @@ class ProjectsLoader {
 
   async loadProjectsFromJSON() {
     try {
-      // Intentar con la ruta con mayúsculas primero
       const response = await fetch('../Proyectos/projects-list.json');
       
       if (!response.ok) {
-        // Si falla, intentar con minúsculas
-        const responseFallback = await fetch('../proyectos/projects-list.json');
-        if (!responseFallback.ok) {
-          throw new Error('No se pudo cargar la lista de proyectos');
-        }
-        return await responseFallback.json();
+        throw new Error('No se pudo cargar la lista de proyectos');
       }
       
-      return await response.json();
+      // Aquí estaba el error principal - ahora asignamos el resultado a this.projects
+      this.projects = await response.json();
+      
+      // Ordenar por fecha (más reciente primero)
+      this.projects.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+        return dateB - dateA;
+      });
+      
     } catch (error) {
       console.error('Error cargando proyectos:', error);
       this.showError();
-      return [];
+      this.projects = [];
     }
   }
 
@@ -80,42 +83,43 @@ class ProjectsLoader {
   }
 
   createProjectCard(project) {
-    const coverImage = project.cover;
-    const techTags = (project.technologies || []).map(tech => 
+    // Usar los nombres de propiedades correctos (en español)
+    const coverImage = project.imagen || '';
+    const techTags = (project.tecnologias || []).map(tech => 
       `<span class="tech-tag">${tech}</span>`
     ).join('');
 
-    // Obtener la clase y color según el estado
-    const statusClass = project.status ? 
-      `status-${project.status.toLowerCase().replace(/\s+/g, '-')}` : 
+    // Ajustar nombres de clases para estados
+    const statusClass = project.estado ? 
+      `status-${project.estado.toLowerCase().replace(/\s+/g, '-')}` : 
       'status-en-desarrollo';
     
-    const statusColor = this.getStatusColor(project.status);
+    const statusColor = this.getStatusColor(project.estado);
 
     return `
       <div class="project-card">
         <div class="project-image">
-          <img src="../proyectos/${coverImage}" 
-               alt="${project.name}" 
+          <img src="../Proyectos/${coverImage}" 
+               alt="${project.nombre}" 
                onerror="this.src='../img/default-cover.jpg'">
           <div class="project-overlay">
-            <a href="../proyectos/${project.url}" class="project-link">
+            <a href="../Proyectos/${project.url}" class="project-link">
               <span class="material-symbols-outlined">visibility</span>
               Ver Proyecto
             </a>
           </div>
         </div>
         <div class="project-info">
-          <h3 class="project-title">${project.name}</h3>
-          <p class="project-description">${project.short_description || 'Sin descripción disponible'}</p>
+          <h3 class="project-title">${project.nombre}</h3>
+          <p class="project-description">${project.descripcion || 'Sin descripción disponible'}</p>
           <div class="project-meta">
             <div class="project-date">
               <span class="material-symbols-outlined">calendar_month</span>
               ${this.formatDate(project.date)}
             </div>
             <div class="project-status ${statusClass}" style="background-color: ${statusColor};">
-              ${this.getStatusIcon(project.status)}
-              ${project.status}
+              ${this.getStatusIcon(project.estado)}
+              ${project.estado}
             </div>
           </div>
           ${techTags ? `<div class="project-technologies">${techTags}</div>` : ''}
@@ -158,7 +162,7 @@ class ProjectsLoader {
       'Prototipo': '#6f42c1',
       'Archivado': '#dc3545'
     };
-    return colors[status] || '#6c757d'; // Color gris por defecto
+    return colors[status] || '#6c757d';
   }
 
   hideLoading() {
