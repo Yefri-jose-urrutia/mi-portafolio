@@ -9,7 +9,7 @@
   <!-- Añadir el SDK de EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <!-- Añadir el script de reCAPTCHA de Google -->
-  <script src="https://www.google.com/recaptcha/api.js?render=TU_CLAVE_DEL_SITIO"></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=6Ld4hborAAAAAOFGQzepDNyIBaVkCFD8IthUpy-b"></script>
 </head>
 <body>
   <header>
@@ -59,9 +59,6 @@
        style="opacity:0;position:absolute;top:-100px;left:-100px;height:1px;width:1px;" 
        tabindex="-1" autocomplete="off">
         </div>
-
-        <!-- Añadir el widget de reCAPTCHA de Google -->
-        <div class="g-recaptcha" data-sitekey="6Ld4hborAAAAAOFGQzepDNyIBaVkCFD8IthUpy-b"></div>
 
         <button type="submit">Enviar mensaje</button>
       </form>
@@ -115,7 +112,7 @@
         
         // ReCAPTCHA v3 no requiere interacción del usuario
         grecaptcha.ready(function() {
-          grecaptcha.execute('TU_CLAVE_DEL_SITIO', {action: 'submit'}).then(function(token) {
+          grecaptcha.execute('6Ld4hborAAAAAOFGQzepDNyIBaVkCFD8IthUpy-b', {action: 'submit'}).then(function(token) {
             // Añadir el token al formulario
             const statusDiv = document.getElementById('mensaje-estado');
             statusDiv.style.display = 'block';
