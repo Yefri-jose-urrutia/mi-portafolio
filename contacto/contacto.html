@@ -9,7 +9,7 @@
   <!-- Añadir el SDK de EmailJS -->
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <!-- Añadir el script de reCAPTCHA de Google -->
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <script src="https://www.google.com/recaptcha/api.js?render=TU_CLAVE_DEL_SITIO"></script>
 </head>
 <body>
   <header>
@@ -113,57 +113,35 @@
       document.getElementById('contactForm').addEventListener('submit', function(event) {
         event.preventDefault();
         
-        // Validación básica anti-spam
-        const email = document.getElementById('correo').value;
-        const mensaje = document.getElementById('mensaje').value;
-        const honeypot = document.getElementById('website').value; // Campo oculto
-        
-        // Verifica si parece spam
-        if (honeypot || mensaje.includes('http') || /\b(viagra|casino|lottery)\b/i.test(mensaje)) {
-          console.log('Spam detectado');
-          return false;
-        }
-        
-        const statusDiv = document.getElementById('mensaje-estado');
-        statusDiv.style.display = 'block';
-        statusDiv.innerHTML = '<p style="color: blue;">Enviando mensaje, espere por favor...</p>';
-        
-        // Obtener los valores del formulario
-        const templateParams = {
-          name: document.getElementById('nombre').value,
-          email: document.getElementById('correo').value,
-          title: document.getElementById('asunto').value,
-          message: document.getElementById('mensaje').value
-        };
-
-        // Verificar el CAPTCHA de Google reCAPTCHA
-        if (grecaptcha.getResponse() === '') {
-          statusDiv.innerHTML = '<p style="color: red;">Por favor, verifica que no eres un robot.</p>';
-          return false;
-        }
-
-        // Añadir al inicio de tu script
-const lastSubmit = localStorage.getItem('lastSubmitTime');
-const now = new Date().getTime();
-
-if (lastSubmit && (now - parseInt(lastSubmit)) < 60000) { // 1 minuto
-  statusDiv.innerHTML = '<p style="color: orange;">Por favor espera un momento antes de enviar otro mensaje.</p>';
-  return false;
-}
-
-// REEMPLAZA "tu_service_id" y "tu_template_id" con tus IDs reales de EmailJS
-        emailjs.send('service_6pi7hiy', 'template_zim0nhf', templateParams)
-          .then(function(response) {
-            console.log('SUCCESS!', response.status, response.text);
-            statusDiv.innerHTML = '<p style="color: green;">¡Mensaje enviado correctamente! Me pondré en contacto contigo pronto.</p>';
-            document.getElementById('contactForm').reset();
-          }, function(error) {
-            console.log('FAILED...', error);
-            statusDiv.innerHTML = '<p style="color: red;">Hubo un problema al enviar el mensaje. Por favor intenta de nuevo o contacta directamente por correo.</p>';
+        // ReCAPTCHA v3 no requiere interacción del usuario
+        grecaptcha.ready(function() {
+          grecaptcha.execute('TU_CLAVE_DEL_SITIO', {action: 'submit'}).then(function(token) {
+            // Añadir el token al formulario
+            const statusDiv = document.getElementById('mensaje-estado');
+            statusDiv.style.display = 'block';
+            statusDiv.innerHTML = '<p style="color: blue;">Enviando mensaje, espere por favor...</p>';
+            
+            // Obtener los valores del formulario
+            const templateParams = {
+              name: document.getElementById('nombre').value,
+              email: document.getElementById('correo').value,
+              title: document.getElementById('asunto').value,
+              message: document.getElementById('mensaje').value,
+              'g-recaptcha-response': token  // Incluir el token del reCAPTCHA
+            };
+            
+            emailjs.send('service_6pi7hiy', 'template_zim0nhf', templateParams)
+              .then(function(response) {
+                console.log('SUCCESS!', response.status, response.text);
+                statusDiv.innerHTML = '<p style="color: green;">¡Mensaje enviado correctamente! Me pondré en contacto contigo pronto.</p>';
+                document.getElementById('contactForm').reset();
+                localStorage.setItem('lastSubmitTime', new Date().getTime().toString());
+              }, function(error) {
+                console.log('FAILED...', error);
+                statusDiv.innerHTML = '<p style="color: red;">Hubo un problema al enviar el mensaje. Por favor intenta de nuevo.</p>';
+              });
           });
-
-          // Al final del envío exitoso:
-localStorage.setItem('lastSubmitTime', now.toString());
+        });
       });
     })();
   </script>
