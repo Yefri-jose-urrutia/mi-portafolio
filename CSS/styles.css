@@ -1637,13 +1637,6 @@ main {
   }
 }
 
-/* Eliminamos estilos anteriores de ia-list que ya no son necesarios */
-.ia-list, .ia-item {
-  /* Estos estilos ya no son necesarios, podemos dejarlos vacíos o eliminarlos */
-}
-
-/* Estilos para estructura jerárquica de elementos */
-
 .resource-list {
   list-style-type: none;
   padding: 0;
@@ -1731,4 +1724,90 @@ main {
   position: static !important;
   transform: none !important;
   box-shadow: none !important;
+}
+
+/* Estilos para el distintivo de proyecto relacionado */
+.project-badge {
+  margin: 10px 0;
+  padding: 8px 12px;
+  background-color: rgba(25, 118, 210, 0.08);
+  border-left: 4px solid #1976d2;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.project-badge:hover {
+  background-color: rgba(25, 118, 210, 0.15);
+  transform: translateX(2px);
+}
+
+.project-badge-simple {
+  color: #1976d2;
+  font-size: 0.9em;
+}
+
+.project-link {
+  display: flex;
+  align-items: center;
+  color: #1976d2;
+  text-decoration: none;
+  font-size: 0.9em;
+  font-weight: 500;
+  transition: color 0.2s;
+  width: 100%;
+}
+
+.project-link:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+.project-badge .material-symbols-outlined {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Ajuste responsive */
+@media (max-width: 700px) {
+  .project-badge {
+    padding: 6px 10px;
+  }
+  
+  .project-link {
+    font-size: 0.85em;
+  }
+  
+  .project-badge .material-symbols-outlined {
+    font-size: 18px;
+  }
+}
+
+/* Estilos para las imágenes generadas por el convertidor */
+.content-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+  display: block;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Para hacer las imágenes responsivas en móviles */
+@media (max-width: 700px) {
+  .content-image {
+    max-width: 100%;
+    margin: 15px auto;
+  }
+}
+
+.project-content .content-image,
+.manual-content .content-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 15px 0;
+  display: block;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }

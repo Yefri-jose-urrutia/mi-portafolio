@@ -1,0 +1,10 @@
+{
+  "nombre": "De Word a página web",
+  "descripcion": "Este manual describe el proyecto para generar una página web pasando solo un documento Word como entrada. El objetivo es simplificar el proceso de conversión de contenido de Word a HTML de manera automática y editable.",
+  "imagen": "De Word a página web/imagenes/generated_video (1).gif",
+  "date": "2025-09-01",
+  "url": "De Word a página web/De Word a página web.html",
+  "tags": [],
+  "tipo": "manual",
+  "proyecto_relacionado": "hacer paginas web pasandole un word"
+}

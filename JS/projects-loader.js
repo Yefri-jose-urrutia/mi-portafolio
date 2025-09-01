@@ -98,9 +98,10 @@ class ProjectsLoader {
 
     return `
       <div class="project-card">
-        <div class="project-image">
+        <div class="project-image" style="height: 220px; overflow: hidden;">
           <img src="../Proyectos/${coverImage}" 
                alt="${project.nombre}" 
+               style="width: 100%; height: 100%; object-fit: contain; object-position: center; background-color: #f5f5f5;"
                onerror="this.src='../img/default-cover.jpg'">
           <div class="project-overlay">
             <a href="../Proyectos/${project.url}" class="project-link">
