@@ -243,13 +243,6 @@
 
   <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Menú hamburguesa (mantener el código existente)
-    document.querySelector('.menu-toggle').addEventListener('click', function() {
-      const nav = document.getElementById('main-menu');
-      nav.classList.toggle('open');
-      this.setAttribute('aria-expanded', nav.classList.contains('open'));
-    });
-
     // Búsqueda mejorada (mantener el código existente)
     const searchInput = document.getElementById('search-input');
     const resourceList = document.querySelectorAll('.resource-category');
