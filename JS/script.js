@@ -8,11 +8,27 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  document.querySelector('.menu-toggle').addEventListener('click', function() {
-    const nav = document.getElementById('main-menu');
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.getElementById('main-menu');
+
+  // Evento para el botón del menú
+  menuToggle.addEventListener('click', function() {
     nav.classList.toggle('open');
     this.setAttribute('aria-expanded', nav.classList.contains('open'));
   });
+
+  // Añadir evento para cerrar el menú cuando se hace clic fuera de él
+  document.addEventListener('click', function(event) {
+    // Si el menú está abierto y el clic no fue ni en el menú ni en el botón del menú
+    if (
+      nav.classList.contains('open') && 
+      !nav.contains(event.target) && 
+      event.target !== menuToggle
+    ) {
+      nav.classList.remove('open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    }
+  }, true);
 });
 
 function calcularExperienciaLaboral(fechaInicio, trabajando = true) {
