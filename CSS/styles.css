@@ -2009,3 +2009,498 @@ hr {
     transform-origin: left top;
   }
 }
+
+/* Estilos específicos para la página de atajos de teclas */
+
+/* Hero Banner con búsqueda */
+.hero-shortcuts {
+  background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  justify-content: space-between;
+}
+
+.hero-shortcuts .title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0d47a1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.2rem;
+}
+
+.hero-shortcuts .legend {
+  color: #37474f;
+  margin-top: 6px;
+  font-size: 1rem;
+  max-width: 500px;
+  line-height: 1.4;
+}
+
+/* Contenedor de búsqueda corregido */
+.search-container {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 300px;
+}
+
+.search-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #5c6bc0;
+  pointer-events: none;
+}
+
+#shortcuts-search {
+  width: 100%;
+  padding: 10px 14px 10px 42px;
+  border-radius: 8px;
+  border: 1px solid #ccdffb;
+  box-shadow: 0 2px 8px rgba(13,71,161,0.06);
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+#shortcuts-search:focus {
+  outline: none;
+  border-color: #2196f3;
+  box-shadow: 0 0 0 3px rgba(33,150,243,0.2);
+}
+
+/* Filtros mejorados */
+.filter-container {
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 1rem;
+  background: #f5f7fa;
+  border-radius: 8px;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #455a64;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.filter-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  flex-grow: 1;
+}
+
+.chip {
+  background: #fff;
+  border: 1px solid #dbe9ff;
+  padding: 6px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #455a64;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  transition: all 0.2s ease;
+}
+
+.chip.active {
+  background: #1976d2;
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 5px rgba(13,71,161,0.2);
+}
+
+.chip:hover:not(.active) {
+  background: #f0f7ff;
+  transform: translateY(-2px);
+}
+
+/* Grid de tarjetas corregido */
+.shortcut-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 1.5rem;
+}
+
+/* Tarjetas de atajos */
+.shortcut-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 4px 15px rgba(15,23,42,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid #f0f0f0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.shortcut-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15,23,42,0.08);
+  border-color: #e0e7ff;
+}
+
+/* Metadatos de la tarjeta */
+.shortcut-card .meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.category {
+  font-size: 0.8rem;
+  color: #607d8b;
+  background: #f0f6ff;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* Título de sección */
+.section-title {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #263238;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.section-title .material-symbols-outlined {
+  color: #1976d2;
+}
+
+/* Combinaciones de teclas */
+.combos {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+/* Estilizado de teclas */
+kbd {
+  background: #f4f6fb;
+  border: 1px solid #d7e6ff;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-weight: 600;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.05);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.9rem;
+  color: #333;
+  min-width: 16px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* Elementos de atajo clicables */
+.shortcut-item {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.shortcut-item:hover {
+  background: #e9f2ff;
+  border-color: #c9d8f2;
+  transform: translateY(-2px);
+}
+
+/* Notas en tarjetas */
+.note {
+  font-size: 0.9rem;
+  color: #556;
+  margin-top: auto;
+  padding-top: 10px;
+  line-height: 1.4;
+  border-top: 1px solid #f5f5f5;
+}
+
+/* Contador de resultados */
+#shortcut-count {
+  margin: 0.5rem 0;
+  padding: 8px 12px;
+  background: #f0f6ff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: #1976d2;
+  border-top: none;
+}
+
+#shortcut-count .material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* Mensaje de no resultados */
+.no-results {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  margin: 2rem 0;
+  display: none;
+  color: #64748b;
+  border: 1px dashed #cbd5e1;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.03);
+}
+
+.no-results .material-symbols-outlined {
+  font-size: 3rem;
+  color: #94a3b8;
+  margin-bottom: 1rem;
+}
+
+.no-results p {
+  margin: 0.5rem 0;
+}
+
+.no-results p:first-of-type {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #475569;
+}
+
+/* Modal de detalles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  overflow: auto;
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 10vh auto;
+  padding: 25px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  position: relative;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.close-modal {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #aaa;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-modal:hover {
+  color: #333;
+}
+
+#modal-title {
+  margin-top: 0;
+  color: #1976d2;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.modal-description {
+  color: #546e7a;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+.modal-shortcut {
+  background-color: #f5f8ff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  text-align: center;
+  font-weight: 600;
+  border-left: 4px solid #1976d2;
+}
+
+.modal-action {
+  background-color: #e8f5e9;
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: #1b5e20;
+  font-weight: 500;
+  margin-top: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  line-height: 1.4;
+}
+
+.modal-action::before {
+  content: "→";
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-shortcuts {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .search-container {
+    width: 100%;
+    max-width: none;
+  }
+  
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-chips {
+    width: 100%;
+  }
+  
+  .shortcut-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    width: 95%;
+    margin: 5vh auto;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-shortcuts {
+    padding: 1rem;
+  }
+  
+  .hero-shortcuts .title {
+    font-size: 1.3rem;
+  }
+  
+  .shortcut-card {
+    padding: 15px;
+  }
+  
+  .chip {
+    padding: 5px 10px;
+    font-size: 0.85rem;
+  }
+  
+  kbd {
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+  
+  .section-title {
+    font-size: 1rem;
+  }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes highlight {
+  0% { background-color: rgba(33, 150, 243, 0.1); }
+  50% { background-color: rgba(33, 150, 243, 0.2); }
+  100% { background-color: rgba(33, 150, 243, 0); }
+}
+
+.highlight {
+  animation: highlight 1s ease;
+}
+
+/* Tooltip para mostrar la función del atajo */
+.shortcut-item::after {
+  content: attr(data-action);
+  position: absolute;
+  background-color: #1976d2;
+  color: white;
+  text-align: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: normal;
+  width: max-content;
+  max-width: 250px;
+  top: -45px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+  z-index: 100; /* Aumentar z-index para asegurar que aparezca por encima */
+}
+
+.shortcut-item:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Si prefieres ocultar las notas debajo de las tarjetas */
+.hide-notes .note {
+  display: none;
+}

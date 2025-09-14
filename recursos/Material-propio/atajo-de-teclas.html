@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Atajos de Teclas - Portafolio Técnico Informático</title>
+  <meta name="description" content="Guía visual de atajos de teclado organizados por sistemas y aplicaciones. Explora por categorías o busca por acción.">
+  <link rel="stylesheet" href="../../CSS/styles.css">
+  <link rel="stylesheet" href="../../CSS/shortcuts.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap" />
+  <link rel="icon" type="image/x-icon" href="../../img/favicon.ico">
+</head>
+<body>
+  <header>
+    <div class="logo">Portafolio Técnico <strong>Informático</strong></div>
+    <button class="menu-toggle" aria-label="Abrir menú" aria-controls="main-menu" aria-expanded="false">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+    <nav id="main-menu" aria-label="Menú principal">
+      <ul>
+        <li><a href="../../index.html">Inicio</a></li>
+        <li><a href="../../sobre-mi/sobre-mi.html">Sobre mí</a></li>
+        <li><a href="../../Proyectos/proyectos.html">Proyectos</a></li>
+        <li><a href="../../Manuales/manuales.html">Manuales técnicos</a></li>
+        <li><a href="../../recursos/recursos.html" class="active">Recursos</a></li>
+        <li><a href="../../contacto/contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="project-container">
+    <a href="../../recursos/recursos.html" class="back-button">← Volver a Recursos</a>
+    
+    <div class="hero-shortcuts">
+      <div>
+        <div class="title"><span class="material-symbols-outlined">keyboard</span> Biblioteca de Atajos</div>
+        <div class="legend">Colección completa de atajos de teclado. Haz clic en cualquier combinación para ver información detallada.</div>
+      </div>
+      <div class="search-container">
+        <div class="search-wrapper">
+          <input id="shortcuts-search" placeholder="Buscar atajo por tecla o acción..." aria-label="Buscar atajos">
+        </div>
+      </div>
+    </div>
+
+    <div class="filter-container">
+      <div class="filter-label"><span class="material-symbols-outlined">filter_list</span> Filtrar por:</div>
+      <div class="filter-chips">
+        <button class="chip active" data-filter="all">Todos</button>
+        <button class="chip" data-filter="windows">Windows</button>
+        <button class="chip" data-filter="linux">Linux</button>
+        <button class="chip" data-filter="vscode">VS Code</button>
+        <button class="chip" data-filter="terminal">Terminal</button>
+        <button class="chip" data-filter="github">GitHub</button>
+        <button class="chip" data-filter="jetbrains">JetBrains</button>
+        <button class="chip" data-filter="browser">Navegador</button>
+      </div>
+    </div>
+
+    <div id="shortcut-count" class="note">
+      <span class="material-symbols-outlined">info</span>
+      Mostrando <strong id="count-number">0</strong> atajos
+    </div>
+
+    <div class="shortcut-grid" id="shortcut-grid">
+      <!-- WINDOWS: SISTEMA -->
+      <article class="shortcut-card" data-categories="windows system navegacion archivos explorador" data-title="Navegación de archivos" data-description="Atajos para navegar eficientemente por el explorador de archivos de Windows. Permite acceder rápidamente a carpetas y gestionar archivos.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">folder</span> Windows</div>
+          <div class="category">Archivos</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir el explorador de archivos">
+            <kbd>Win</kbd> + <kbd>E</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Seleccionar todo el contenido">
+            <kbd>Ctrl</kbd> + <kbd>A</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Crear nueva carpeta">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Eliminar elemento seleccionado">
+            <kbd>Delete</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Eliminar permanentemente (sin papelera)">
+            <kbd>Shift</kbd> + <kbd>Delete</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Renombrar archivo o carpeta">
+            <kbd>F2</kbd>
+          </div>
+        </div>
+        <div class="note">Explorador, seleccionar todo, nueva carpeta, eliminar y renombrar.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system busqueda search cortana" data-title="Búsqueda y ejecutar" data-description="Atajos para acceder rápidamente a la búsqueda de Windows y ejecutar comandos. Permite encontrar archivos, aplicaciones y configuraciones.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">search</span> Windows</div>
+          <div class="category">Búsqueda</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir la búsqueda de Windows">
+            <kbd>Win</kbd> + <kbd>S</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir el cuadro de diálogo Ejecutar">
+            <kbd>Win</kbd> + <kbd>R</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Buscar archivos y carpetas">
+            <kbd>Win</kbd> + <kbd>F</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir configuración de Windows">
+            <kbd>Win</kbd> + <kbd>I</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir el panel de control">
+            <kbd>Win</kbd> + <kbd>X</kbd>
+          </div>
+        </div>
+        <div class="note">Búsqueda, ejecutar comandos, encontrar archivos y acceder a configuración.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system escritorio virtual multiple" data-title="Escritorios virtuales" data-description="Atajos para gestionar múltiples escritorios virtuales en Windows 10/11. Permite organizar el trabajo en diferentes espacios virtuales.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">desktop_windows</span> Windows</div>
+          <div class="category">Escritorios</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Crear nuevo escritorio virtual">
+            <kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>D</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar entre escritorios virtuales">
+            <kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>←</kbd> / <kbd>→</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cerrar escritorio virtual actual">
+            <kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>F4</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ver todos los escritorios (Task View)">
+            <kbd>Win</kbd> + <kbd>Tab</kbd>
+          </div>
+        </div>
+        <div class="note">Crear, cambiar y cerrar escritorios virtuales para mejor organización.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system bloqueo sesion seguridad" data-title="Seguridad y sesión" data-description="Atajos relacionados con la seguridad del sistema y gestión de sesión de usuario. Permite bloquear, cerrar sesión y acceder a opciones de seguridad.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">lock</span> Windows</div>
+          <div class="category">Seguridad</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Bloquear la computadora">
+            <kbd>Win</kbd> + <kbd>L</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir opciones de seguridad (Ctrl+Alt+Del)">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>Del</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar de usuario rápidamente">
+            <kbd>Win</kbd> + <kbd>L</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir administrador de tareas">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Esc</kbd>
+          </div>
+        </div>
+        <div class="note">Bloquear PC, opciones de seguridad, cambio de usuario y administrador de tareas.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system texto edicion formato" data-title="Edición de texto" data-description="Atajos avanzados para edición de texto en aplicaciones de Windows. Incluye selección, formato y navegación por texto.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">edit_note</span> Windows</div>
+          <div class="category">Texto</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Seleccionar palabra completa">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>←</kbd> / <kbd>→</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ir al inicio o final del documento">
+            <kbd>Ctrl</kbd> + <kbd>Home</kbd> / <kbd>End</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Buscar texto en documento">
+            <kbd>Ctrl</kbd> + <kbd>F</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Reemplazar texto">
+            <kbd>Ctrl</kbd> + <kbd>H</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Negrita, cursiva, subrayado">
+            <kbd>Ctrl</kbd> + <kbd>B</kbd> / <kbd>I</kbd> / <kbd>U</kbd>
+          </div>
+        </div>
+        <div class="note">Selección avanzada, navegación por documento, buscar y formato de texto.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system aplicaciones programas lanzador" data-title="Lanzar aplicaciones" data-description="Atajos rápidos para abrir aplicaciones y herramientas del sistema Windows. Acceso directo a programas comunes sin usar el mouse.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">apps</span> Windows</div>
+          <div class="category">Aplicaciones</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir calculadora">
+            <kbd>Win</kbd> + <kbd>R</kbd>, escribir "calc"
+          </div>
+          <div class="shortcut-item" data-action="Abrir bloc de notas">
+            <kbd>Win</kbd> + <kbd>R</kbd>, escribir "notepad"
+          </div>
+          <div class="shortcut-item" data-action="Abrir paint">
+            <kbd>Win</kbd> + <kbd>R</kbd>, escribir "mspaint"
+          </div>
+          <div class="shortcut-item" data-action="Abrir símbolo del sistema">
+            <kbd>Win</kbd> + <kbd>R</kbd>, escribir "cmd"
+          </div>
+          <div class="shortcut-item" data-action="Abrir PowerShell como administrador">
+            <kbd>Win</kbd> + <kbd>X</kbd>, luego <kbd>A</kbd>
+          </div>
+        </div>
+        <div class="note">Acceso rápido a calculadora, notepad, paint, cmd y PowerShell.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system monitor pantalla proyeccion" data-title="Gestión de monitores" data-description="Atajos para gestionar múltiples monitores y opciones de proyección. Útil para presentaciones y configuraciones multi-pantalla.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">monitor</span> Windows</div>
+          <div class="category">Monitores</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir opciones de proyección">
+            <kbd>Win</kbd> + <kbd>P</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Rotar orientación de pantalla">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ampliar o duplicar pantalla">
+            <kbd>Win</kbd> + <kbd>P</kbd>, luego seleccionar
+          </div>
+          <div class="shortcut-item" data-action="Configuración de pantalla">
+            <kbd>Win</kbd> + <kbd>I</kbd>, Sistema > Pantalla
+          </div>
+        </div>
+        <div class="note">Proyección, rotación y configuración de múltiples monitores.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system notificaciones centro accion" data-title="Centro de notificaciones" data-description="Atajos para acceder al centro de notificaciones y configuraciones rápidas de Windows. Gestión de notificaciones y accesos rápidos.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">notifications</span> Windows</div>
+          <div class="category">Notificaciones</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir centro de notificaciones">
+            <kbd>Win</kbd> + <kbd>A</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir configuración rápida">
+            <kbd>Win</kbd> + <kbd>U</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Activar/desactivar modo avión">
+            <kbd>Win</kbd> + <kbd>A</kbd>, luego clic en modo avión
+          </div>
+          <div class="shortcut-item" data-action="Configurar notificaciones">
+            <kbd>Win</kbd> + <kbd>I</kbd> > Sistema > Notificaciones
+          </div>
+        </div>
+        <div class="note">Centro de acción, configuración rápida y gestión de notificaciones.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system accesibilidad lupa contraste" data-title="Accesibilidad" data-description="Atajos para funciones de accesibilidad de Windows. Herramientas para usuarios con necesidades especiales de visión, audición y movilidad.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">accessibility</span> Windows</div>
+          <div class="category">Accesibilidad</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Activar/desactivar lupa">
+            <kbd>Win</kbd> + <kbd>+</kbd> / <kbd>-</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Activar narrador">
+            <kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Activar teclado en pantalla">
+            <kbd>Win</kbd> + <kbd>Ctrl</kbd> + <kbd>O</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Alternar alto contraste">
+            <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>PrtScn</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir centro de accesibilidad">
+            <kbd>Win</kbd> + <kbd>U</kbd>
+          </div>
+        </div>
+        <div class="note">Lupa, narrador, teclado en pantalla, alto contraste y centro de accesibilidad.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="windows system volumen audio reproduccion" data-title="Control de audio" data-description="Atajos para controlar el volumen y audio del sistema. Gestión rápida de dispositivos de audio y configuración de sonido.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">volume_up</span> Windows</div>
+          <div class="category">Audio</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Subir/bajar volumen">
+            <kbd>Vol+</kbd> / <kbd>Vol-</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Silenciar/restaurar audio">
+            <kbd>Mute</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir mezclador de volumen">
+            <kbd>Win</kbd> + <kbd>R</kbd>, escribir "sndvol"
+          </div>
+          <div class="shortcut-item" data-action="Configuración de sonido">
+            <kbd>Win</kbd> + <kbd>I</kbd> > Sistema > Sonido
+          </div>
+        </div>
+        <div class="note">Control de volumen, silenciar, mezclador y configuración de audio.</div>
+      </article>
+
+      <!-- LINUX: SISTEMA -->
+      <article class="shortcut-card" data-categories="linux system terminal atajos escritorio" data-title="Atajos básicos de Linux" data-description="Combinaciones de teclas fundamentales para el uso diario de distribuciones Linux. La mayoría funcionan en entornos de escritorio como GNOME, KDE o XFCE.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">terminal</span> Linux</div>
+          <div class="category">Sistema</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir una ventana de terminal">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar entre ventanas abiertas">
+            <kbd>Alt</kbd> + <kbd>Tab</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Bloquear la pantalla">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>L</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Realizar una captura de pantalla completa">
+            <kbd>PrtScn</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Mostrar escritorio">
+            <kbd>Super</kbd> + <kbd>D</kbd>
+          </div>
+        </div>
+        <div class="note">Abrir terminal, cambiar ventanas, bloquear pantalla, captura completa, mostrar escritorio.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="linux system ventanas organizar pantalla" data-title="Gestión de ventanas en Linux" data-description="Atajos para organizar ventanas en entornos Linux. Estas combinaciones pueden variar ligeramente según la distribución y el entorno de escritorio que utilices.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">window</span> Linux</div>
+          <div class="category">Ventanas</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Acoplar ventana a la mitad izquierda o derecha">
+            <kbd>Super</kbd> + <kbd>←</kbd> / <kbd>→</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Maximizar o restaurar ventana">
+            <kbd>Super</kbd> + <kbd>↑</kbd> / <kbd>↓</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cerrar la ventana o aplicación activa">
+            <kbd>Alt</kbd> + <kbd>F4</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ver todas las aplicaciones">
+            <kbd>Super</kbd> + <kbd>A</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar al escritorio virtual inferior">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd>
+          </div>
+        </div>
+        <div class="note">Organizar ventanas, cerrar aplicación, vista de aplicaciones, cambiar de escritorio.</div>
+      </article>
+
+      <!-- NAVEGADORES -->
+      <article class="shortcut-card" data-categories="browser chrome firefox navigation pestañas" data-title="Atajos de navegador" data-description="Combinaciones de teclas comunes para la navegación web. Estos atajos funcionan en la mayoría de navegadores populares como Chrome, Firefox, Edge o Safari.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">language</span> Navegador</div>
+          <div class="category">Chrome / Firefox</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir una nueva pestaña">
+            <kbd>Ctrl</kbd> + <kbd>T</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cerrar la pestaña actual">
+            <kbd>Ctrl</kbd> + <kbd>W</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Reabrir la última pestaña cerrada">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>T</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Enfocar la barra de direcciones">
+            <kbd>Ctrl</kbd> + <kbd>L</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir las herramientas para desarrolladores">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>J</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar a la siguiente pestaña">
+            <kbd>Ctrl</kbd> + <kbd>Tab</kbd>
+          </div>
+        </div>
+        <div class="note">Nueva pestaña, cerrar pestaña, reabrir pestaña, barra de direcciones, DevTools, cambiar pestaña.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="browser chrome firefox avanzado" data-title="Navegadores - Funciones avanzadas" data-description="Atajos menos conocidos pero muy útiles para la navegación web avanzada. Estas combinaciones permiten gestionar la privacidad y optimizar el rendimiento.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">web</span> Navegador</div>
+          <div class="category">Avanzado</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir una nueva ventana en modo incógnito">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>N</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Recargar la página omitiendo la caché">
+            <kbd>Ctrl</kbd> + <kbd>F5</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ver el historial de navegación">
+            <kbd>Ctrl</kbd> + <kbd>H</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Guardar la página actual como marcador">
+            <kbd>Ctrl</kbd> + <kbd>D</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Abrir diálogo para borrar datos de navegación">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Del</kbd>
+          </div>
+        </div>
+        <div class="note">Ventana privada, recargar sin caché, historial, guardar marcador, borrar datos.</div>
+      </article>
+
+      <!-- GIT: VISUAL STUDIO CODE -->
+      <article class="shortcut-card" data-categories="git vscode editor control version" data-title="Git en VS Code" data-description="Atajos de teclado para usar Git directamente desde Visual Studio Code. Control de versiones integrado sin salir del editor.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">code</span> VS Code</div>
+          <div class="category">Git</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir panel de control de código fuente">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Hacer commit rápido">
+            <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Sincronizar cambios (push/pull)">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git: Sync"
+          </div>
+          <div class="shortcut-item" data-action="Ver diferencias del archivo actual">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git: Open Changes"
+          </div>
+          <div class="shortcut-item" data-action="Stage/Unstage archivo actual">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git: Stage"
+          </div>
+        </div>
+        <div class="note">Control de versiones integrado, commit, sync y diferencias en VS Code.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git terminal bash comandos rapidos" data-title="Terminal/Bash Git" data-description="Atajos de teclado y navegación en terminal para comandos Git. Autocompletado y navegación rápida en línea de comandos.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">terminal</span> Terminal</div>
+          <div class="category">Bash</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Autocompletar comando Git">
+            <kbd>Tab</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Historial de comandos Git anteriores">
+            <kbd>↑</kbd> / <kbd>↓</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Buscar en historial de comandos">
+            <kbd>Ctrl</kbd> + <kbd>R</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cancelar comando actual">
+            <kbd>Ctrl</kbd> + <kbd>C</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Limpiar terminal">
+            <kbd>Ctrl</kbd> + <kbd>L</kbd>
+          </div>
+        </div>
+        <div class="note">Autocompletado, historial, búsqueda y navegación en terminal Git.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git github desktop aplicacion gui" data-title="GitHub Desktop" data-description="Atajos de teclado para GitHub Desktop, la aplicación GUI oficial para gestionar repositorios Git de forma visual.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">desktop_windows</span> GitHub</div>
+          <div class="category">Desktop</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Crear nuevo repositorio">
+            <kbd>Ctrl</kbd> + <kbd>N</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Clonar repositorio">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>O</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Hacer commit">
+            <kbd>Ctrl</kbd> + <kbd>Enter</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Push/Pull cambios">
+            <kbd>Ctrl</kbd> + <kbd>P</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Cambiar entre repositorios">
+            <kbd>Ctrl</kbd> + <kbd>T</kbd>
+          </div>
+        </div>
+        <div class="note">Nuevo repo, clonar, commit, sync y cambio de repositorio en GitHub Desktop.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git jetbrains intellij idea phpstorm" data-title="JetBrains IDEs" data-description="Atajos de Git para IntelliJ IDEA, PhpStorm, WebStorm y otros IDEs de JetBrains. Control de versiones integrado.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">psychology</span> JetBrains</div>
+          <div class="category">IDEs</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Ventana de control de versiones">
+            <kbd>Alt</kbd> + <kbd>9</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Commit cambios">
+            <kbd>Ctrl</kbd> + <kbd>K</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Actualizar proyecto (pull)">
+            <kbd>Ctrl</kbd> + <kbd>T</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Push cambios">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>K</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ver historial de Git">
+            <kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+          </div>
+        </div>
+        <div class="note">VCS window, commit, pull, push e historial en IDEs JetBrains.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git sublime text editor merge diff" data-title="Sublime Text + Git" data-description="Atajos para usar Git en Sublime Text con plugins como GitGutter y Sublime Merge. Control de versiones en editor ligero.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">edit</span> Sublime</div>
+          <div class="category">Text</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Comando Git (con plugin)">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git"
+          </div>
+          <div class="shortcut-item" data-action="Git status">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git: Status"
+          </div>
+          <div class="shortcut-item" data-action="Git commit">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "Git: Commit"
+          </div>
+          <div class="shortcut-item" data-action="Ir a línea siguiente con cambios">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>↓</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ir a línea anterior con cambios">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Alt</kbd> + <kbd>↑</kbd>
+          </div>
+        </div>
+        <div class="note">Git commands, status, commit y navegación por cambios en Sublime Text.</div>
+      </article>
+      <article class="shortcut-card" data-categories="git atom editor github integrado" data-title="Atom Editor" data-description="Atajos de Git en Atom, el editor desarrollado por GitHub con integración nativa de control de versiones.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">science</span> Atom</div>
+          <div class="category">Editor</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Toggle Git panel">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>9</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Stage/Unstage archivo">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>A</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Commit">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Ver diferencias">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>G</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Push/Pull">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> > "GitHub"
+          </div>
+        </div>
+        <div class="note">Git panel, stage, commit, diff y sync en Atom con GitHub integrado.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git eclipse ide java desarrollo" data-title="Eclipse IDE" data-description="Atajos para Git en Eclipse IDE usando EGit. Control de versiones para desarrollo Java y otros lenguajes.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">wb_sunny</span> Eclipse</div>
+          <div class="category">EGit</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Git Staging View">
+            <kbd>Ctrl</kbd> + <kbd>3</kbd> > "Git Staging"
+          </div>
+          <div class="shortcut-item" data-action="Team menu (Git operations)">
+            <kbd>Alt</kbd> + <kbd>T</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Compare with HEAD">
+            <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>C</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Git History">
+            <kbd>Ctrl</kbd> + <kbd>3</kbd> > "History"
+          </div>
+          <div class="shortcut-item" data-action="Synchronize Workspace">
+            <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>S</kbd>
+          </div>
+        </div>
+        <div class="note">Staging view, team operations, compare, history y sync en Eclipse EGit.</div>
+      </article>
+
+      <article class="shortcut-card" data-categories="git emacs magit editor lisp" data-title="Emacs + Magit" data-description="Atajos para el poderoso plugin Magit en Emacs. Una de las interfaces Git más completas y eficientes disponibles.">
+        <div class="meta">
+          <div class="section-title"><span class="material-symbols-outlined">functions</span> Emacs</div>
+          <div class="category">Magit</div>
+        </div>
+        <div class="combos">
+          <div class="shortcut-item" data-action="Abrir Magit status">
+            <kbd>C-x</kbd> <kbd>g</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Stage/Unstage (en magit-status)">
+            <kbd>s</kbd> / <kbd>u</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Commit">
+            <kbd>c</kbd> <kbd>c</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Push">
+            <kbd>P</kbd> <kbd>p</kbd>
+          </div>
+          <div class="shortcut-item" data-action="Pull">
+            <kbd>F</kbd> <kbd>p</kbd>
+          </div>
+        </div>
+        <div class="note">Status, stage/unstage, commit, push y pull en la potente interfaz Magit.</div>
+      </article>
+
+    </div>
+
+    <div class="no-results" id="no-results">
+      <span class="material-symbols-outlined">search_off</span>
+      <p>No se encontraron atajos que coincidan con tu búsqueda.</p>
+      <p>Prueba con otros términos o selecciona otra categoría.</p>
+    </div>
+
+    <!-- Modal para detalles del atajo -->
+    <div id="shortcut-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-description" class="modal-description"></p>
+        <div id="modal-shortcut" class="modal-shortcut"></div>
+        <p id="modal-action" class="modal-action"></p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-columns">
+      <div>
+        <strong>Sobre mí</strong><br>
+        Técnico Informático<br>
+        Madrid, España
+      </div>
+      <div>
+        <strong>Recursos</strong><br>
+        <a href="../../Manuales/manuales.html">Manuales técnicos</a><br>
+        <a href="../../Proyectos/proyectos.html">Proyectos</a>
+      </div>
+      <div>
+        <strong>Contáctame</strong><br>
+        <a href="mailto:yefrijoseurrutia@gmail.com">yefrijoseurrutia@gmail.com</a><br>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/yefri-urrutia-hernandez-informatica/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <svg width="24" height="24" fill="#607d8b" viewBox="0 0 24 24"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.25c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.25h-3v-5.5c0-1.1-.9-2-2-2s-2 .9-2 2v5.5h-3v-10h3v1.5c.41-.59 1.09-1.5 2.5-1.5 1.93 0 3.5 1.57 3.5 3.5v6.5z"/></svg>
+        </a>
+        <a href="https://github.com/Yefri-jose-urrutia" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <svg width="24" height="24" fill="#607d8b" viewBox="0 0 24 24"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.93.58.11.79-.25.79-.56v-2.02c-3.2.7-3.87-1.54-3.87-1.54-.53-1.34-1.3-1.7-1.3-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.2 1.79 1.2 1.04 1.78 2.73 1.27 3.4.97.11-.75.41-1.27.75-1.56-2.56-.29-5.26-1.28-5.26-5.7 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.45.11-3.02 0 0 .97-.31 3.18 1.18a11.07 11.07 0 012.9-.39c.98.01 1.97.13 2.9.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.57.23 2.73.11 3.02.74.8 1.19 1.83 1.19 3.09 0 4.43-2.7 5.41-5.27 5.7.42.36.8 1.08.8 2.18v3.23c0 .31.21.67.8.56C20.71 21.39 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <hr>
+    <div class="footer-copy">
+      &copy; <script>document.write(new Date().getFullYear());</script> Yefri Jose Urrutia Hernandez. Todos los derechos reservados.
+    </div>
+  </footer>
+
+  <script src="../../JS/shortcuts.js"></script>
+</body>
+</html>
