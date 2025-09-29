@@ -215,5 +215,24 @@
     </div>
   </footer>
   <script src="../JS/script.js"></script>
+  <script>
+    // Calcular edad automáticamente y mostrarla en el elemento con id="edad"
+    function calcularEdad() {
+      const fechaNacimiento = new Date(2003, 8, 29); // Mes 8 = septiembre (0-indexado)
+      const hoy = new Date();
+      let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+      const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+      if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+        edad--;
+      }
+      return edad;
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      const elementoEdad = document.getElementById('edad');
+      if (elementoEdad) {
+        elementoEdad.textContent = calcularEdad();
+      }
+    });
+  </script>
 </body>
 </html>
